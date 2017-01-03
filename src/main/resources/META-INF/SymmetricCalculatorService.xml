@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+	xmlns:sc="http://schemas.sun.com/2006/03/wss/client" xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy"
+	xmlns:tns="http://calculator.soap.metro.maxramos.ph/" targetNamespace="http://calculator.soap.metro.maxramos.ph/"
+	name="SymmetricCalculatorService">
+	<message name="add" />
+	<message name="addResponse" />
+	<portType name="SymmetricCalculator">
+		<operation name="add">
+			<input message="tns:add" />
+			<output message="tns:addResponse" />
+		</operation>
+	</portType>
+	<binding name="SymmetricCalculatorPortBinding" type="tns:SymmetricCalculator">
+		<wsp:PolicyReference URI="#SymmetricCalculatorPortBindingPolicy" />
+		<operation name="add">
+			<input />
+			<output />
+		</operation>
+	</binding>
+	<service name="SymmetricCalculatorService">
+		<port name="SymmetricCalculatorPort" binding="tns:SymmetricCalculatorPortBinding" />
+	</service>
+	<wsp:Policy wsu:Id="SymmetricCalculatorPortBindingPolicy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<wsam:Addressing />
+				<sp:SymmetricBinding>
+					<wsp:Policy>
+						<sp:ProtectionToken>
+							<wsp:Policy>
+								<sp:X509Token
+									sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
+									<wsp:Policy>
+										<sp:WssX509V3Token11 />
+									</wsp:Policy>
+								</sp:X509Token>
+							</wsp:Policy>
+						</sp:ProtectionToken>
+						<sp:AlgorithmSuite>
+							<wsp:Policy>
+								<sp:Basic128 />
+							</wsp:Policy>
+						</sp:AlgorithmSuite>
+						<sp:Layout>
+							<wsp:Policy>
+								<sp:Strict />
+							</wsp:Policy>
+						</sp:Layout>
+						<sp:OnlySignEntireHeadersAndBody />
+						<sp:IncludeTimestamp />
+					</wsp:Policy>
+				</sp:SymmetricBinding>
+				<sp:Wss11>
+					<wsp:Policy>
+						<sp:MustSupportRefKeyIdentifier />
+					</wsp:Policy>
+				</sp:Wss11>
+				<sp:SignedParts>
+					<sp:Body />
+				</sp:SignedParts>
+				<sp:EncryptedParts>
+					<sp:Body />
+				</sp:EncryptedParts>
+				<sc:TrustStore wspp:visibility="private"
+					location="/home/max/tomcat2/conf/certs/client-truststore.jks" type="JKS"
+					storepass="changeit" peeralias="calculator-server" />
+				<!-- <sc:TrustStore wspp:visibility="private" -->
+				<!-- location="C:\Users\mramos\.babun\cygwin\home\mramos\tomcat2\conf\certs\client-truststore.jks" -->
+				<!-- type="JKS" storepass="changeit" peeralias="calculator-server" /> -->
+				<sc:CallbackHandlerConfiguration
+					wspp:visibility="private">
+					<sc:CallbackHandler default="mramos" name="usernameHandler" />
+					<sc:CallbackHandler default="maxx" name="passwordHandler" />
+				</sc:CallbackHandlerConfiguration>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+</definitions>

@@ -1,0 +1,9 @@
+# sniff network
+sudo ngrep host localhost -d any
+
+# Create a file named jaxp.properties under /path/to/jdk1.8.0/jre/lib and then write:
+javax.xml.accessExternalSchema = all
+
+# to be able for tomcat2 to connect to tomcat through https
+-Djavax.net.ssl.trustStore="/home/max/tomcat2/conf/tomcat-truststore.jks"
+-Djavax.net.ssl.trustStorePassword="changeit"

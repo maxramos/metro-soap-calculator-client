@@ -1,0 +1,18 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+	<system systemId="http://localhost:8080/metro-soap-calculator/Calculator?wsdl"
+		uri="wsdl/CalculatorService.wsdl" />
+	<system systemId="http://localhost:8080/metro-soap-calculator/Calculator?xsd=1"
+		uri="wsdl/CalculatorService_schema1.xsd" />
+	<system systemId="http://localhost:8080/metro-soap-calculator/AsymmetricCalculator?wsdl"
+		uri="wsdl/AsymmetricCalculatorService.wsdl" />
+	<system systemId="http://localhost:8080/metro-soap-calculator/AsymmetricCalculator?xsd=1"
+		uri="wsdl/AsymmetricCalculatorService_schema1.xsd" />
+	<system systemId="http://localhost:8080/metro-soap-calculator/SymmetricCalculator?wsdl"
+		uri="wsdl/SymmetricCalculatorService.wsdl" />
+	<system systemId="http://localhost:8080/metro-soap-calculator/SymmetricCalculator?xsd=1"
+		uri="wsdl/SymmetricCalculatorService_schema1.xsd" />
+	<system systemId="https://localhost:8443/metro-soap-calculator/TransportCalculator?wsdl"
+		uri="wsdl/TransportCalculatorService.wsdl" />
+	<system systemId="https://localhost:8443/metro-soap-calculator/TransportCalculator?xsd=1"
+		uri="wsdl/TransportCalculatorService_schema1.xsd" />
+</catalog>

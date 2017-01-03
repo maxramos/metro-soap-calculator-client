@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<S:Header>
+		<To xmlns="http://www.w3.org/2005/08/addressing">https://localhost:8443/metro-soap-calculator/TransportCalculator
+		</To>
+		<Action xmlns="http://www.w3.org/2005/08/addressing" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
+			S:mustUnderstand="1">http://calculator.soap.metro.maxramos.ph/TransportCalculator/addRequest
+		</Action>
+		<ReplyTo xmlns="http://www.w3.org/2005/08/addressing">
+			<Address>http://www.w3.org/2005/08/addressing/anonymous</Address>
+		</ReplyTo>
+		<FaultTo xmlns="http://www.w3.org/2005/08/addressing">
+			<Address>http://www.w3.org/2005/08/addressing/anonymous</Address>
+		</FaultTo>
+		<MessageID xmlns="http://www.w3.org/2005/08/addressing">uuid:42361c30-1277-41ba-b508-9d2e36c58bea
+		</MessageID>
+		<wsse:Security S:mustUnderstand="1">
+			<wsu:Timestamp
+				xmlns:ns14="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns13="http://www.w3.org/2003/05/soap-envelope" wsu:Id="_1">
+				<wsu:Created>2017-01-02T15:52:20Z</wsu:Created>
+				<wsu:Expires>2017-01-02T15:57:20Z</wsu:Expires>
+			</wsu:Timestamp>
+			<wsse:UsernameToken
+				xmlns:ns14="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns13="http://www.w3.org/2003/05/soap-envelope" wsu:Id="uuid_c34790f6-3b8b-4c7b-bc47-e7bf9ed4a09e">
+				<wsse:Username>mramos</wsse:Username>
+				<wsse:Password
+					Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">maxx</wsse:Password>
+				<wsse:Nonce
+					EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">xRr+cC129fBhBa2vAlyrpK1Q</wsse:Nonce>
+				<wsu:Created>2017-01-02T15:52:20Z</wsu:Created>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</S:Header>
+	<S:Body>
+		<ns2:add xmlns:ns2="http://calculator.soap.metro.maxramos.ph/">
+			<addend1>2</addend1>
+			<addend2>2</addend2>
+		</ns2:add>
+	</S:Body>
+</S:Envelope>

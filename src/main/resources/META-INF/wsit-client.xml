@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" name="mainclientconfig">
+	<import location="AsymmetricCalculatorService.xml" namespace="http://calculator.soap.metro.maxramos.ph/" />
+	<import location="SymmetricCalculatorService.xml" namespace="http://calculator.soap.metro.maxramos.ph/" />
+	<import location="TransportCalculatorService.xml" namespace="http://calculator.soap.metro.maxramos.ph/" />
+</definitions>

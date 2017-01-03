@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<S:Header>
+		<Action xmlns="http://www.w3.org/2005/08/addressing" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
+			S:mustUnderstand="1">http://calculator.soap.metro.maxramos.ph/TransportCalculator/addResponse
+		</Action>
+		<MessageID xmlns="http://www.w3.org/2005/08/addressing">uuid:6c81d7bf-b58d-4dac-81ae-fc39815908ae
+		</MessageID>
+		<RelatesTo xmlns="http://www.w3.org/2005/08/addressing">uuid:42361c30-1277-41ba-b508-9d2e36c58bea
+		</RelatesTo>
+		<To xmlns="http://www.w3.org/2005/08/addressing">http://www.w3.org/2005/08/addressing/anonymous</To>
+		<wsse:Security S:mustUnderstand="1">
+			<wsu:Timestamp
+				xmlns:ns14="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns13="http://www.w3.org/2003/05/soap-envelope" wsu:Id="_1">
+				<wsu:Created>2017-01-02T15:52:20Z</wsu:Created>
+				<wsu:Expires>2017-01-02T15:57:20Z</wsu:Expires>
+			</wsu:Timestamp>
+		</wsse:Security>
+	</S:Header>
+	<S:Body>
+		<ns2:addResponse xmlns:ns2="http://calculator.soap.metro.maxramos.ph/">
+			<return>4</return>
+		</ns2:addResponse>
+	</S:Body>
+</S:Envelope>

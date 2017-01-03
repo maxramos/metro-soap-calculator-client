@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Body>
+		<ns2:add xmlns:ns2="http://calculator.soap.metro.maxramos.ph/">
+			<addend1>2</addend1>
+			<addend2>2</addend2>
+		</ns2:add>
+	</S:Body>
+</S:Envelope>
+
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Body>
+		<ns2:addResponse xmlns:ns2="http://calculator.soap.metro.maxramos.ph/">
+			<return>4</return>
+		</ns2:addResponse>
+	</S:Body>
+</S:Envelope>
