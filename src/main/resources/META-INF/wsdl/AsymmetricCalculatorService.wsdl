@@ -58,8 +58,6 @@
         <sp:MustSupportRefKeyIdentifier/>
       </wsp1_2:Policy>
     </sp:Wss11>
-    <ssp:KeyStore location="/home/max/tomcat/conf/certs/server-keystore.jks" sunwsp:visibility="private" alias="calculator-server" storepass="changeit" type="JKS"/>
-    <ssp:TrustStore location="/home/max/tomcat/conf/certs/server-truststore.jks" sunwsp:visibility="private" storepass="changeit" type="JKS"/>
     <wsam:Addressing/>
   </wsp1_2:Policy>
   <types>
