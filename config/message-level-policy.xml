@@ -40,7 +40,6 @@
 									sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
 									<wsp:Policy>
 										<sp:WssX509V3Token10 />
-										<sp:RequireKeyIdentifierReference />
 									</wsp:Policy>
 								</sp:X509Token>
 							</wsp:Policy>
@@ -51,7 +50,6 @@
 									sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
 									<wsp:Policy>
 										<sp:WssX509V3Token10 />
-										<sp:RequireKeyIdentifierReference />
 									</wsp:Policy>
 								</sp:X509Token>
 							</wsp:Policy>
@@ -70,24 +68,29 @@
 						<sp:IncludeTimestamp />
 					</wsp:Policy>
 				</sp:AsymmetricBinding>
+				<sp:Wss11>
+					<wsp:Policy>
+						<sp:MustSupportRefKeyIdentifier />
+					</wsp:Policy>
+				</sp:Wss11>
+				<sc:KeyStore wspp:visibility="private"
+					location="client-keystore.jks" type="JKS"
+					storepass="changeit" alias="calculator-client" />
+				<sc:TrustStore wspp:visibility="private"
+					location="client-truststore.jks" type="JKS"
+					storepass="changeit" peeralias="calculator-server" />
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<wsp:Policy wsu:Id="CalculatorPortBinding_Input_Policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
 				<sp:SignedParts>
 					<sp:Body />
 				</sp:SignedParts>
 				<sp:EncryptedParts>
 					<sp:Body />
 				</sp:EncryptedParts>
-				<sc:KeyStore wspp:visibility="private"
-					location="/home/max/tomcat2/conf/certs/client-keystore.jks" type="JKS"
-					storepass="changeit" alias="calculator-client" />
-				<sc:TrustStore wspp:visibility="private"
-					location="/home/max/tomcat2/conf/certs/client-truststore.jks" type="JKS"
-					storepass="changeit" peeralias="calculator-server" />
-				<!-- <sc:KeyStore wspp:visibility="private" -->
-				<!-- location="C:\Users\mramos\.babun\cygwin\home\mramos\tomcat\conf\certs\server-keystore.jks" -->
-				<!-- type="JKS" storepass="changeit" alias="calculator-server" /> -->
-				<!-- <sc:TrustStore wspp:visibility="private" -->
-				<!-- location="C:\Users\mramos\.babun\cygwin\home\mramos\tomcat\conf\certs\server-truststore.jks" -->
-				<!-- type="JKS" storepass="changeit" /> -->
 				<sc:CallbackHandlerConfiguration
 					wspp:visibility="private">
 					<sc:CallbackHandler default="mramos" name="usernameHandler" />
@@ -96,33 +99,16 @@
 			</wsp:All>
 		</wsp:ExactlyOne>
 	</wsp:Policy>
-	<!-- <wsp:Policy wsu:Id="CalculatorPortBinding_Input_Policy"> -->
-	<!-- <wsp:ExactlyOne> -->
-	<!-- <wsp:All> -->
-	<!-- <sp:SignedParts> -->
-	<!-- <sp:Body /> -->
-	<!-- </sp:SignedParts> -->
-	<!-- <sp:EncryptedParts> -->
-	<!-- <sp:Body /> -->
-	<!-- </sp:EncryptedParts> -->
-	<!-- <sc:CallbackHandlerConfiguration -->
-	<!-- wspp:visibility="private"> -->
-	<!-- <sc:CallbackHandler default="mramos" name="usernameHandler" /> -->
-	<!-- <sc:CallbackHandler default="maxx" name="passwordHandler" /> -->
-	<!-- </sc:CallbackHandlerConfiguration> -->
-	<!-- </wsp:All> -->
-	<!-- </wsp:ExactlyOne> -->
-	<!-- </wsp:Policy> -->
-	<!-- <wsp:Policy wsu:Id="CalculatorPortBinding_Output_Policy"> -->
-	<!-- <wsp:ExactlyOne> -->
-	<!-- <wsp:All> -->
-	<!-- <sp:SignedParts> -->
-	<!-- <sp:Body /> -->
-	<!-- </sp:SignedParts> -->
-	<!-- <sp:EncryptedParts> -->
-	<!-- <sp:Body /> -->
-	<!-- </sp:EncryptedParts> -->
-	<!-- </wsp:All> -->
-	<!-- </wsp:ExactlyOne> -->
-	<!-- </wsp:Policy> -->
+	<wsp:Policy wsu:Id="CalculatorPortBinding_Output_Policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<sp:SignedParts>
+					<sp:Body />
+				</sp:SignedParts>
+				<sp:EncryptedParts>
+					<sp:Body />
+				</sp:EncryptedParts>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
 </definitions>
