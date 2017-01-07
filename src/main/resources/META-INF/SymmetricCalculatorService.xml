@@ -65,9 +65,8 @@
 				<sp:EncryptedParts>
 					<sp:Body />
 				</sp:EncryptedParts>
-				<sc:TrustStore wspp:visibility="private"
-					location="client-truststore.jks" type="JKS"
-					storepass="changeit" peeralias="calculator-server" />
+				<sc:TrustStore wspp:visibility="private" location="client-truststore.jks"
+					type="JKS" storepass="changeit" peeralias="calculator-server" />
 				<sc:CallbackHandlerConfiguration
 					wspp:visibility="private">
 					<sc:CallbackHandler default="mramos" name="usernameHandler" />
