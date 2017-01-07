@@ -7,3 +7,6 @@ javax.xml.accessExternalSchema = all
 # to be able for tomcat2 to connect to tomcat through https
 -Djavax.net.ssl.trustStore="/home/max/tomcat2/conf/tomcat-truststore.jks"
 -Djavax.net.ssl.trustStorePassword="changeit"
+
+# to be able to use <sp:InclusiveC14N />
+<sc:DisableStreamingSecurity wspp:visibility="private" />
