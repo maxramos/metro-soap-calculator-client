@@ -11,7 +11,7 @@ public class StartUpListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		HttpTransportPipe.dump = true;
+		HttpTransportPipe.dump = false;
 	}
 
 	@Override
