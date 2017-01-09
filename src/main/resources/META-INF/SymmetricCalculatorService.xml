@@ -27,44 +27,6 @@
 	<wsp:Policy wsu:Id="SymmetricCalculatorPortBindingPolicy">
 		<wsp:ExactlyOne>
 			<wsp:All>
-				<wsam:Addressing />
-				<sp:SymmetricBinding>
-					<wsp:Policy>
-						<sp:ProtectionToken>
-							<wsp:Policy>
-								<sp:X509Token
-									sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
-									<wsp:Policy>
-										<sp:WssX509V3Token11 />
-									</wsp:Policy>
-								</sp:X509Token>
-							</wsp:Policy>
-						</sp:ProtectionToken>
-						<sp:AlgorithmSuite>
-							<wsp:Policy>
-								<sp:Basic128 />
-							</wsp:Policy>
-						</sp:AlgorithmSuite>
-						<sp:Layout>
-							<wsp:Policy>
-								<sp:Strict />
-							</wsp:Policy>
-						</sp:Layout>
-						<sp:OnlySignEntireHeadersAndBody />
-						<sp:IncludeTimestamp />
-					</wsp:Policy>
-				</sp:SymmetricBinding>
-				<sp:Wss11>
-					<wsp:Policy>
-						<sp:MustSupportRefKeyIdentifier />
-					</wsp:Policy>
-				</sp:Wss11>
-				<sp:SignedParts>
-					<sp:Body />
-				</sp:SignedParts>
-				<sp:EncryptedParts>
-					<sp:Body />
-				</sp:EncryptedParts>
 				<sc:TrustStore wspp:visibility="private" location="client-truststore.jks"
 					type="JKS" storepass="changeit" peeralias="calculator-server" />
 				<sc:CallbackHandlerConfiguration

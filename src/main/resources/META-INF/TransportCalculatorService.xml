@@ -27,27 +27,6 @@
 	<wsp:Policy wsu:Id="TransportCalculatorPortBindingPolicy">
 		<wsp:ExactlyOne>
 			<wsp:All>
-				<wsam:Addressing />
-				<sp:TransportBinding>
-					<wsp:Policy>
-						<sp:TransportToken>
-							<wsp:Policy>
-								<sp:HttpsToken />
-							</wsp:Policy>
-						</sp:TransportToken>
-						<sp:AlgorithmSuite>
-							<wsp:Policy>
-								<sp:Basic128 />
-							</wsp:Policy>
-						</sp:AlgorithmSuite>
-						<sp:Layout>
-							<wsp:Policy>
-								<sp:Strict />
-							</wsp:Policy>
-						</sp:Layout>
-						<sp:IncludeTimestamp />
-					</wsp:Policy>
-				</sp:TransportBinding>
 				<sc:CallbackHandlerConfiguration
 					wspp:visibility="private">
 					<sc:CallbackHandler default="mramos" name="usernameHandler" />
